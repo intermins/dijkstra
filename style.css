@@ -1,0 +1,120 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    cursor: url('cursor.png'), default;
+}
+:root {
+    --vertice-cursor: url('pointer.png'), pointer;
+}
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+}
+.vertice {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 0px 10px black;
+    background: white;
+    border-radius: 50%;
+    animation: load 0.2s ease-out 1;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.vertice:hover {
+    background: rgb(0, 255, 0);
+    cursor: var(--vertice-cursor);
+}
+.line {
+    width: 100px;
+    height: 2px;
+    position: absolute;
+    transform-origin: 0 0;
+    background: white;
+    left: 50%;
+    z-index: -1;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.line span {
+    position: absolute;
+    top: 5px;
+}
+.weightForm {
+    padding: 30px;
+    border: 2.5px solid rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background: black;
+    z-index: 5;
+    transition: 0.5s;
+    gap: 15px;
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(-100vh);
+}
+.none {
+    display: none;
+}
+.inputBox {
+    position: relative;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+.inputBox input {
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    border-radius: 3px;
+    padding: 8px;
+    outline: none;
+}
+.inputBox span {
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    position: absolute;
+    padding: 8px;
+    transition: 0.3s;
+    pointer-events: none;
+}
+.inputBox input:hover {
+    cursor: url('text.png'), pointer;
+}
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span  {
+    color: rgb(255, 255, 255);
+    transform: translate(0px, -25px);
+    font-size: 13px;
+}
+.button {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: url('link.png'), pointer;
+}
+@keyframes load {
+    from {
+        opacity: 0;
+        transform: translateY(-3px);
+    }
+}
