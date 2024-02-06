@@ -7,7 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="weightForm hidden">
+        <div class="inputBox">
+            <input type="number" required>
+            <span>Enter Weight</span>
+        </div>
+        <div class="button" onclick="addWeightLogic()">Enter</div>
+    </div>
+
+    <span class="marker">0</span>
+
+    <span class="pushes">Choose a source vertice</span>
+
+    <div class="two-buttons-block">
+        <div class="reset-button" onclick="remove_all()">Reset</div>
+        <div class="reset-button" onclick="reset()">Clear Path</div>
+    </div>
+
+    <div class="found_path_button" onclick="start_path()">Found Path</div>
 
     <script src="script.js"></script>
 </body>

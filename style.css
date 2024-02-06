@@ -1,6 +1,9 @@
 *, *::before, *::after {
     box-sizing: border-box;
-    cursor: url('cursor.png'), pointer;
+    cursor: url('cursor.png'), default;
+}
+:root {
+    --vertice-cursor: url('pointer.png'), pointer;
 }
 body {
     margin: 0;
@@ -28,20 +31,162 @@ body {
 }
 .vertice:hover {
     background: rgb(0, 255, 0);
-    cursor: url('pointer.png'), pointer;
+    cursor: var(--vertice-cursor);
 }
 .line {
-    width: 100px;
+    width: 0px;
     height: 2px;
     position: absolute;
     transform-origin: 0 0;
     background: white;
     left: 50%;
     z-index: -1;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.line span {
+    position: absolute;
+    top: 5px;
+}
+.weightForm {
+    padding: 30px;
+    border: 2.5px solid rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background: black;
+    z-index: 5;
+    transition: 0.5s;
+    gap: 15px;
+    width: 240px;
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(-100vh);
+}
+.none {
+    display: none;
+}
+.inputBox {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.inputBox input {
+    color: white;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
+    border-radius: 3px;
+    padding: 8px;
+    outline: none;
+}
+.inputBox span {
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    position: absolute;
+    padding: 8px;
+    transition: 0.3s;
+    pointer-events: none;
+}
+.inputBox input:hover {
+    cursor: url('text.png'), pointer;
+}
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span  {
+    color: rgb(255, 255, 255);
+    transform: translate(0px, -25px);
+    font-size: 13px;
+}
+.button {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: url('link.png'), pointer;
+}
+.visited {
+    background: rgb(1, 255, 1);
+    box-shadow: 0px 0px 10px green;
+}
+.found_path_button {
+    background: white;
+    padding: 10px;
+    border-radius: 3px;
+    font-family: sans-serif;
+    transition: 0.2s;
+    cursor: url('link.png'), pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.found_path_button:hover {
+    border: 1px solid white;
+    background: black;
+    color: white;
+}
+.pushes {
+    color: white;
+    transition: 0.4s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    transform: translateY(-40px);
+}
+.push {
+    transform: translateY(0px);
+}
+.marker {
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    transition: 0.4s;
+    transform: translateY(-40px);
+}
+.marker-push {
+    transform: translateY(1px);
+}
+.reset-button {
+    background: white;
+    padding: 10px;
+    border-radius: 3px;
+    font-family: sans-serif;
+    transition: 0.2s;
+    cursor: url('link.png'), pointer;
+}
+.reset-button:hover {
+    border: 1px solid white;
+    background: black;
+    color: white;
+}
+.two-buttons-block {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    bottom: 20px;
+    left: 20px;
 }
 @keyframes load {
     from {
         opacity: 0;
         transform: translateY(-3px);
+    }
+}
+@media screen and (max-width: 385px) {
+    .weightForm {
+        width: 98%;
     }
 }
